@@ -1,0 +1,124 @@
+* {
+	padding: 0; margin: 0;
+	box-sizing: border-box;
+}
+
+ul, ol {
+	list-style: none;
+	padding-left: 0;
+}
+
+
+body {
+	display: flex;
+	flex-flow: row nowrap;
+	
+	background: #283593;
+	color: #C5CAE9;
+	height: 100vh;
+}
+
+main {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+menu[type=toolbar] {
+	display: flex;
+	flex-flow: row nowrap;
+	
+	background: rgba(83,109,254,0.2);
+	min-height: 56px;
+}
+
+#properties {
+	display: flex;
+	flex-flow: column nowrap;
+	
+	width: 400px;
+	background: #1A237E;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+	z-index: 100;
+	
+	ul {
+		display: flex;
+	}
+	
+	& > ul { padding: 16px; }
+	
+	ul ul {
+		padding-left: 16px;
+		
+		li::before {
+			content: "├ ";
+		}
+		li:last-child::before {
+			content: "└ ";
+		}
+	}
+}
+
+main {
+	flex-grow: 1;
+}
+
+#playmat {
+	display: flex;
+	flex-flow: column nowrap;
+	
+	flex-grow: 1;
+	flex-flow: row nowrap;
+	padding: 16px;
+	color: black;
+}
+
+#card-area {
+	display: flex;
+	flex-flow: column nowrap;
+	
+	padding: 16px;
+}
+
+#sheet-area {
+	display: flex;
+	flex-flow: column nowrap;
+	
+	flex-grow: 1;
+	padding: 16px;
+}
+
+.card,
+.sheet {
+	background: white;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.card {
+	width: 240px; height: 336px;
+	padding: 8px;
+	border-radius: 4px;
+}
+
+.sheet {
+	width: 640px; height: 880px;
+}
+
+.card header,
+.card .cell {
+	height: 40px;
+	line-height: 40px;
+	padding: 0 8px;
+}
+
+.card header {
+	font-weight: bold;
+}
+
+.card ul {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.card .cell {
+	flex-basis: 50%;
+}
