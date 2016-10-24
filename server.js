@@ -1,10 +1,8 @@
-let express = require( 'express' );
-let http    = require( 'http'    );
-let morgan  = require( 'morgan'  );
-let path    = require( 'path'    );
-
-// let bodyParser = require( 'body-parser' );
-// app.use( bodyParser.json() );
+let express    = require( 'express'     );
+let http       = require( 'http'        );
+let morgan     = require( 'morgan'      );
+let path       = require( 'path'        );
+let bodyParser = require( 'body-parser' );
 
 
 let app = express();
@@ -13,6 +11,7 @@ let server = http.Server( app );
 
 app.use( morgan( 'dev' ));
 
+app.use( bodyParser.json() );
 
 app.use( '/', express.static(
 	path.join( __dirname, 'public' ),
