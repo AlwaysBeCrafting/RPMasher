@@ -1,64 +1,33 @@
-* {
-	padding: 0; margin: 0;
-	box-sizing: border-box;
-}
+@import "include/general";
+@import "include/colors";
+@import "include/dimens";
 
-ul, ol {
-	list-style: none;
-	padding-left: 0;
-}
+@import "include/properties";
+@import "include/card";
+@import "include/sheet";
+@import "include/toolbar";
+@import "include/fonts";
+
+
+
+@appBackground: #283593;
+@appText: #ffffff;
+
+@appbarHeight: 56px;
+@appbarBackground: rgba(83,109,254,0.2);
+
 
 
 body {
-	display: flex;
-	flex-flow: row nowrap;
-	
-	background: #283593;
-	color: #C5CAE9;
+	background: @appBackground;
+	color: @appText;
 	height: 100vh;
-}
-
-main {
-	display: flex;
 	flex-flow: column nowrap;
 }
 
-menu[type=toolbar] {
+main {
 	display: flex;
 	flex-flow: row nowrap;
-	
-	background: rgba(83,109,254,0.2);
-	min-height: 56px;
-}
-
-#properties {
-	display: flex;
-	flex-flow: column nowrap;
-	
-	width: 400px;
-	background: #1A237E;
-	box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-	z-index: 100;
-	
-	ul {
-		display: flex;
-	}
-	
-	& > ul { padding: 16px; }
-	
-	ul ul {
-		padding-left: 16px;
-		
-		li::before {
-			content: "├ ";
-		}
-		li:last-child::before {
-			content: "└ ";
-		}
-	}
-}
-
-main {
 	flex-grow: 1;
 }
 
@@ -87,38 +56,17 @@ main {
 	padding: 16px;
 }
 
-.card,
-.sheet {
-	background: white;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.card {
-	width: 240px; height: 336px;
-	padding: 8px;
-	border-radius: 4px;
-}
-
-.sheet {
-	width: 640px; height: 880px;
-}
-
-.card header,
-.card .cell {
-	height: 40px;
-	line-height: 40px;
-	padding: 0 8px;
-}
-
-.card header {
+#appbar {
+	z-index: 200;
+	height: @appbarHeight;
+	
+	box-shadow: 0 2px 4px @color-shadow;
+	
+	padding: 0 @dimen-keyline-padding;
+	line-height: @appbarHeight;
+	background: @appbarBackground;
+	
+	font-family: serif;
 	font-weight: bold;
-}
-
-.card ul {
-	display: flex;
-	flex-flow: row wrap;
-}
-
-.card .cell {
-	flex-basis: 50%;
+	font-size: 22px;
 }

@@ -2,7 +2,6 @@ let express = require( 'express' );
 let http    = require( 'http'    );
 let morgan  = require( 'morgan'  );
 let path    = require( 'path'    );
-let less    = require( 'express-less' );
 
 // let bodyParser = require( 'body-parser' );
 // app.use( bodyParser.json() );
@@ -14,7 +13,6 @@ let server = http.Server( app );
 
 app.use( morgan( 'dev' ));
 
-app.use( '/css', less( path.join( __dirname, '/less' )));
 
 app.use( '/', express.static(
 	path.join( __dirname, 'public' ),

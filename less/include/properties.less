@@ -1,0 +1,26 @@
+#properties {
+	display: flex;
+	flex-flow: column nowrap;
+	
+	width: 400px;
+	background: #1A237E;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+	z-index: 100;
+	
+	ul {
+		display: flex;
+	}
+	
+	& > ul { padding: 16px; }
+	
+	ul ul {
+		padding-left: 16px;
+		
+		li::before {
+			content: "├ ";
+		}
+		li:last-child::before {
+			content: "└ ";
+		}
+	}
+}

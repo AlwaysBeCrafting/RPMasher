@@ -1,0 +1,59 @@
+@import "colors";
+@import "dimens";
+
+
+
+@sheet-column-count: 16;
+@sheet-row-count: 22;
+
+@sheet-cell-size: @dimen-cell-size;
+
+@sheet-horizontal-padding: @dimen-keyline-padding;
+@sheet-vertical-padding: 8px;
+
+@sheet-width:  ( @sheet-column-count * @sheet-cell-size ) + ( @sheet-horizontal-padding * 2 );
+@sheet-height: ( @sheet-row-count    * @sheet-cell-size ) + ( @sheet-vertical-padding   * 2 );
+
+
+@sheet-background-color: @color-grey50;
+
+
+
+.sheet {
+	box-shadow: 0 2px 4px @color-shadow;
+	width: @sheet-width; height: @sheet-height;
+	background: @sheet-background-color;
+	padding: @sheet-vertical-padding 0;
+	
+	line-height: @sheet-cell-size;
+	
+	display: flex;
+	flex-flow: column nowrap;
+	align-content: stretch;
+	
+
+	menu[type=toolbar] {
+		padding: 0 @sheet-horizontal-padding;
+		font-weight: bold;
+		flex-basis: 0;
+		flex-grow: 1;
+	}
+	
+	.row {
+		padding: 0 @sheet-horizontal-padding;
+		display: flex;
+		flex-flow: row nowrap;
+		align-content: stretch;
+		
+		flex-basis: 0;
+		flex-grow: 1;
+	}
+
+	.cell {
+		flex-basis: 0;
+		flex-grow: 1;
+		flex-shrink: 1;
+		
+		outline: solid thin @color-lightBlue100;
+	}
+}
